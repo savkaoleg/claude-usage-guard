@@ -69,3 +69,7 @@ The mod API's types (`Register`, `Shaped`, …) are written by Claude Code into 
 | Manifest and module, as the engine reads them | `claude plugin validate .` |
 | Types | `npx -p typescript tsc -p .` |
 | Tests | `claude plugin test .` |
+
+## License
+
+MIT, see [LICENSE](LICENSE).
