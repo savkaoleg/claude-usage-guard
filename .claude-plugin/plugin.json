@@ -1,0 +1,20 @@
+{
+  "name": "usage-guard",
+  "version": "0.1.0",
+  "description": "Holds new prompts once a Claude rate-limit window reaches 95%, with early-warning toasts, a status line and /usage-guard",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "blockAt": {
+      "type": "number",
+      "title": "Hold prompts at (%)",
+      "description": "New prompts are held once any rate-limit window reaches this percentage",
+      "default": 95
+    },
+    "warnAt": {
+      "type": "string",
+      "title": "Warn at (%)",
+      "description": "Comma-separated percentages that each raise one toast per window, e.g. 80,90",
+      "default": "80,90"
+    }
+  }
+}
