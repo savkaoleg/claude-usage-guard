@@ -1,0 +1,6 @@
+{
+  "name": "usage-guard",
+  "owner": { "name": "Oleh Savka" },
+  "description": "usage-guard: holds Claude Code prompts before a rate-limit window runs out",
+  "plugins": [{ "name": "usage-guard", "source": "./" }]
+}

@@ -2,6 +2,8 @@
   "name": "usage-guard",
   "version": "0.1.0",
   "description": "Holds new prompts once a Claude rate-limit window reaches 95%, with early-warning toasts, a status line and /usage-guard",
+  "author": { "name": "Oleh Savka" },
+  "repository": "https://github.com/savkaoleg/claude-usage-guard",
   "types": "./types/index.d.ts",
   "userConfig": {
     "blockAt": {

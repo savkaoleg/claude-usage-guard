@@ -4,6 +4,26 @@ A Claude Code mod that stops you from burning through a Claude rate-limit window
 
 Once any rate-limit window (5-hour, 7-day, or a gateway spend limit) reaches 95%, usage-guard holds new prompts instead of sending them, and tells you which window is at what figure and when it resets.
 
+## Install
+
+At the prompt of a Claude Code terminal session:
+
+```
+/plugin install usage-guard --marketplace savkaoleg/claude-usage-guard
+```
+
+From a shell:
+
+```
+claude plugin install usage-guard --marketplace savkaoleg/claude-usage-guard
+```
+
+Answer `y` to add the marketplace, then pick a scope (user scope guards every session). The options screen that follows sets `blockAt` and `warnAt`.
+
+In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `savkaoleg/claude-usage-guard`, then Add plugin.
+
+While the repository is private, it installs only for people who can read it on GitHub and whose machine already has a git credential for github.com (an SSH key, or `gh auth login` then `gh auth setup-git`).
+
 ## What it does
 
 - **Holds prompts at 95%.** A prompt that would start a turn is dropped with the reason. Send the same prompt again to let it through once.
@@ -35,3 +55,19 @@ Set in `/config`, or under `pluginConfigs["usage-guard"].options` in `~/.claude/
 
 - Rate-limit windows come from Claude's API responses, so a session sees them only after a response (or from another session's reading stored on this machine).
 - Mods can't read which account a session is signed in to, so two accounts used on one machine share stored readings.
+
+## Development
+
+Run Claude Code with this folder as a plugin folder; the mod reloads as its files change:
+
+```
+claude --plugin-dir /path/to/claude-usage-guard
+```
+
+The mod API's types (`Register`, `Shaped`, …) are written by Claude Code into `.claude-plugin/types/` each time it loads the mod from this folder, matching the running version; the folder is gitignored. Until it has loaded once, the editor and `tsc` report errors such as `Cannot find name 'Shaped'`.
+
+| Check | Command |
+| --- | --- |
+| Manifest and module, as the engine reads them | `claude plugin validate .` |
+| Types | `npx -p typescript tsc -p .` |
+| Tests | `claude plugin test .` |
