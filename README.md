@@ -22,8 +22,6 @@ Answer `y` to add the marketplace, then pick a scope (user scope guards every se
 
 In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `savkaoleg/claude-usage-guard`, then Add plugin.
 
-While the repository is private, it installs only for people who can read it on GitHub and whose machine already has a git credential for github.com (an SSH key, or `gh auth login` then `gh auth setup-git`).
-
 ## What it does
 
 - **Holds prompts at 95%.** A prompt that would start a turn is dropped with the reason. Send the same prompt again to let it through once.
